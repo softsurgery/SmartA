@@ -1,0 +1,365 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: #2e4f72;
+  max-height: 100%;
+  overflow-x: hidden;
+  position: fixed;
+}
+
+.icon-bar {
+  position: fixed;
+  margin-left: 97%;
+  top: 82%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+  margin-right: 0px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.facebook {
+  background: #3b5998;
+  color: white;
+}
+
+.instagram {
+  background-image: linear-gradient(Violet, #bc2a8d, #fbad50, #fccc63);
+}
+
+.WhatsApp {
+  background: #25d366;
+  color: white;
+}
+
+.google {
+  background: #dd4b39;
+  color: white;
+}
+
+.youtube {
+  background: #bb0000;
+  color: white;
+}
+
+h2 {
+  color: black;
+  text-align: center;
+  text-shadow: 2px 2px rgb(93, 90, 90);
+  width: 40%;
+  margin-top: 0px;
+  padding: 10px;
+  margin-left: 200px;
+}
+
+.entete {
+  width: 100%;
+  display: flex;
+  margin: 0px;
+  padding: 10px 10px 0px 0px;
+  background-color: white;
+}
+
+.logo1 {
+  display: flex;
+  flex-direction: row;
+  margin-left: 60px;
+  margin-bottom: 50px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  padding-top: 20px;
+  margin-right: 20px;
+}
+
+.sidenav a {
+  padding: 10px 15px 10px 10px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #e9edee;
+  display: block;
+  border: 2px solid #db4b93;
+  border-radius: 8px;
+  margin: 20px;
+  background-color: #05a3e2;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+  border: solid 2px #f1f1f1;
+  background-color: #2e4f72;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+
+  font-size: 40px;
+  margin-left: 5%;
+  padding: 1px;
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+
+.main {
+  margin-left: 250px;
+  margin-right: 70px;
+  margin-top: 10px;
+
+  padding: 10px 10px;
+}
+
+.sidenav a {
+  font-size: 18px;
+}
+
+#clic {
+  transition: margin-left 0.5s;
+  padding-left: 1px;
+}
+
+.logo {
+  margin-left: 0px;
+  padding-top: 5px;
+}
+
+.form-container {
+  background-color: #05a3e2;
+  color: white;
+  border-radius: 20px;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+.form-row button.cancel-button {
+  background-color: #db4b93;
+}
+
+.form-row input:focus,
+.form-row button:focus {
+  outline: none;
+  background-color: #afdff3;
+}
+
+table {
+  background-color: #05a3e2;
+  table-layout: fixed;
+  width: 90%;
+  border: 1px transparent;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 100px;
+  margin-left: 70px;
+}
+
+table td {
+  padding-left: 8px;
+}
+
+.label {
+  width: 25%;
+  text-shadow: 2px 2px rgb(185, 186, 248);
+}
+
+.input {
+  width: 70%;
+  text-shadow: 2px 2px rgb(185, 186, 248);
+}
+
+.icon {
+  font-size: 25px;
+  width: 5%;
+  opacity: 0;
+}
+
+label {
+  color: #eeecf3;
+  font-size: 20 px;
+
+  display: block;
+  text-align: left;
+}
+
+input[type="text"] {
+  width: 95%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  box-sizing: border-box;
+  border: 2px solid #db4b93;
+  border-radius: 8px;
+}
+
+input[type="text"]:focus {
+  background-color: rgb(54, 191, 228);
+}
+
+input[type="number"]:focus {
+  background-color: rgb(54, 191, 228);
+}
+
+input[type="date"] {
+  width: 95%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #db4b93;
+  border-radius: 8px;
+}
+
+input[type="date"]:focus {
+  background-color: rgb(54, 191, 228);
+}
+
+input [type="checkbox"] {
+  width: 95%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #db4b93;
+  border-radius: 8px;
+}
+
+input[type="checkbox"]:focus {
+  background-color: rgb(54, 191, 228);
+}
+
+input[type="password"] {
+  width: 95%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: solid #db4b93;
+  border-radius: 8px;
+}
+
+input[type="password"]:focus {
+  background-color: rgb(54, 191, 228);
+}
+
+input[type="email"] {
+  width: 95%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #db4b93;
+  border-radius: 8px;
+}
+
+input[type="email"]:focus {
+  background-color: rgb(54, 191, 228);
+}
+
+select {
+  width: 95%;
+  padding: 12px 20px;
+  border: 2px solid #db4b93;
+  border-radius: 8px;
+}
+
+input[type="submit"] {
+  background-color: #2e4f72;
+  color: white;
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid #db4b93;
+  padding: 16px 32px;
+  border-radius: 15px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+input[type="reset"] {
+  border: 2px solid #2e4f72;
+  background-color: #db4b93;
+  color: white;
+  border-radius: 15px;
+  padding: 16px 32px;
+  font-size: 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+input[type="submit"]:hover {
+  background-color: #67e769;
+}
+
+input[type="reset"]:hover {
+  background-color: #f48484;
+}
+
+button {
+  background-color: #04aa6d;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #04aa6d;
+}
+
+input.invalid {
+  background-color: #ffdddd;
+}
+
+.cercle {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.tab {
+  display: none;
+}

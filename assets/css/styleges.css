@@ -1,0 +1,205 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: white;
+  max-height: 100%;
+  overflow-x: hidden;
+
+}
+.main {
+  margin-left:280px;
+  margin-right: 70px;
+  margin-top: 10px;
+
+}
+.entete {
+  width: 100%;
+  display: flex;
+  margin: 0px;
+  padding: 10px 10px 0px 0px;
+  background-color: white;
+}
+
+.logo {
+  display: flex;
+  background-color: white;
+  flex-direction: row;
+  width: 250px;
+  padding-left: 10px;
+  position: fixed;
+}
+.sidenav {
+  height: 80%;
+  width: 270px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #2e4f72;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  top: 15%;
+}
+.sidenav a {
+  padding: 10px 15px 10px 10px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #010912;
+  display: block;
+  border: 2px solid #db4b93;
+  border-radius: 8px;
+  margin: 20px;
+  background-color: #05a3e2;
+ 
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+  border: solid 2px #f1f1f1;
+  background-color: #2e4f72;
+}
+
+
+.icon-bar {
+  position: fixed;
+  margin-left: 97%;
+  top: 79%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+  margin-right: 0px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.facebook {
+  background: #3b5998;
+  color: white;
+}
+
+.instagram {
+  background-image: linear-gradient(Violet, #bc2a8d, #fbad50, #fccc63);
+}
+
+.WhatsApp {
+  background: #25d366;
+  color: white;
+}
+
+.google {
+  background: #dd4b39;
+  color: white;
+}
+
+.youtube {
+  background: #bb0000;
+  color: white;
+}
+h1 {
+  color: black;
+ 
+  text-shadow: 2px 2px rgb(93, 90, 90);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 450px;
+}
+h3{
+  color: black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+}
+table {
+  background-color: #05a3e2;
+  table-layout: fixed;
+  border: 1px transparent;
+  border-radius: 20px;
+  width: 100%;
+  border-collapse: collapse;
+ 
+}
+table th{
+ 
+  padding: 5px;
+  text-align: center;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-radius: 20px;
+}
+table td {
+
+   padding:5px;
+   text-align: center;
+   border-right: 1px solid transparent;
+   border-bottom: 1px solid transparent;
+   border-radius: 20px;
+}
+.ajouter {
+  background-color: #05a3e2;
+  table-layout: fixed;
+  border: 1px transparent;
+  border-radius: 20px;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+
+}
+label {
+  color: #070114;
+  font-size: 20 px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select :focus {
+  background-color: rgb(194, 220, 227);
+}
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select {
+  width: 80%; 
+  padding: 12px 20px;
+  margin: 8px 0px;
+  box-sizing: border-box;
+  border: 2px solid #db4b93;
+  border-radius: 8px;
+  text-shadow: 2px 2px rgb(185, 186, 248);
+  background-color: rgb(208, 226, 231);
+}
+button {
+  background-color: #01754b;
+  color: #ffffff;
+  border: none;
+  padding: 10px ;
+  margin: 8px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+  width: auto;
+  border-radius: 8px;
+}
+button:hover {
+  opacity: 0.8;
+}
+

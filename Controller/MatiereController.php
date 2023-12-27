@@ -1,8 +1,8 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Utils/connect.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Model/Section.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Model/Matiere.php";
 
-class SectionController {
+class MatiereController {
     protected $conn;
 
     public function __construct() {
@@ -11,23 +11,23 @@ class SectionController {
 
     public function liste() {
         try {
-            $req = "SELECT ID_SEC,NOM_SEC FROM section";
+            $req = "SELECT ID_MAT, NOM_MAT FROM matiere";
             $list = $this->conn->query($req);
-            $sections = [];
+            $Matieres = [];
             while ($row = $list->fetch_assoc()) {
-                $section = new Section($row["ID_SEC"], $row["NOM_SEC"]);
-                $sections[] = $section;
+                $matiere = new Matiere($row["ID_MAT"], $row["NOM_MAT"]);
+                $Matieres[] = $matiere;
             }
-            return $sections;
+            return $Matieres;
         } catch (Exception $e) {
             return null;
         }
     }
 
-    public function ajouter(Section $section) {
+    public function ajouter(Matiere $matiere) {
         try {
-            $nom = $section->getNom();
-            $stmt = $this->conn->prepare("INSERT INTO section (NOM_SEC) VALUES (?)");
+            $nom = $matiere->getNom();
+            $stmt = $this->conn->prepare("INSERT INTO matiere (NOM_MAT) VALUES (?)");
             $stmt->bind_param("s", $nom);
             $stmt->execute();
             return true;
@@ -38,7 +38,7 @@ class SectionController {
 
     public function supprimer($id) {
         try {
-            $stmt = $this->conn->prepare("DELETE FROM section WHERE ID_SEC = ?");
+            $stmt = $this->conn->prepare("DELETE FROM matiere WHERE ID_MAT = ?");
             $stmt->bind_param("i", $id);
             $stmt->execute();
             return true;
@@ -47,12 +47,10 @@ class SectionController {
         }
     }
 
-    public function modifier(Section $section) {
+    public function modifier(Matiere $matiere) {
         try {
-            $id = $section->getId();
-            $nom = $section->getNom();
-            $stmt = $this->conn->prepare("UPDATE section SET NOM_SEC = ? WHERE ID_SEC = ?");
-            $stmt->bind_param("si", $nom, $id);
+            $stmt = $this->conn->prepare("UPDATE Matiere SET NOM_MAT = ? WHERE ID_Mat = ?");
+            $stmt->bind_param("si", $matiere->getNom(), $matiere->getId());
             $stmt->execute();
             return true;
         } catch (Exception $e) {
@@ -62,15 +60,15 @@ class SectionController {
 
     public function recherche_par_id($id) {
         try {
-            $stmt = $this->conn->prepare("SELECT ID_SEC, NOM_SEC FROM section WHERE ID_SEC = ?");
+            $stmt = $this->conn->prepare("SELECT ID_Mat, NOM_MAT FROM Matiere WHERE ID_Mat = ?");
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $result = $stmt->get_result();
             
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $section = new Section($row["ID_SEC"], $row["NOM_SEC"]);
-                return $section;
+                $Matiere = new Matiere($row["ID_Mat"], $row["NOM_MAT"]);
+                return $Matiere;
             } else {
                 return null;
             }
@@ -78,25 +76,25 @@ class SectionController {
             die("Erreur : " . $e->getMessage());
         }
     }
+
     public function recherche_par_nom($nom) {
         try {
             $nom =  '%' . $nom . '%';
-            $stmt = $this->conn->prepare("SELECT ID_SEC, NOM_SEC FROM section WHERE NOM_SEC LIKE ?");
+            $stmt = $this->conn->prepare("SELECT ID_MAT, NOM_MAT FROM matiere WHERE NOM_MAT LIKE ?");
             $stmt->bind_param("s", $nom);
             $stmt->execute();
             $result = $stmt->get_result();
-            $sections = [];
+            $matieres = [];
             while ($row = $result->fetch_assoc()) {
-                $section = new Section($row["ID_SEC"], $row["NOM_SEC"]);
-                $sections[] = $section;
+                $matiere = new Matiere($row["ID_MAT"], $row["NOM_MAT"]);
+                $matieres[] = $matiere;
             }
-    
-            return $sections;
+            return $matieres;
         } catch (Exception $e) {
             die("Erreur : " . $e->getMessage());
         }
     }
-    
+
     }
     
 ?>

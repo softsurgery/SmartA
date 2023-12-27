@@ -13,14 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $id = $annee->getId();
             $nom = $annee->getNom();
             echo "<tr id=\"" . $id . "\">
-        <td>" . $nom . "</td>
-        <td><button onclick='redirection_modification_annee(\"" . $id . "\")'>Modifier</button></td>
-        <td><button onclick='supprimer_annee(\"" . $id . "\",\"" . $nom . "\")'>Supprimer</button></td>
-      </tr>";
+                    <td>" . $nom . "</td>
+                    <td><button onclick='redirection_modification_annee(\"" . $id . "\")'>Modifier</button></td>
+                    <td><button onclick='supprimer_annee(\"" . $id . "\",\"" . $nom . "\")'>Supprimer</button></td>
+                  </tr>";
         }
     } else
         echo "<tr>
                 <td colspan='3'>Aucune Annees Trouvée </td>
             </tr>";
 }
-?>

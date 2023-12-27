@@ -4,9 +4,9 @@ function lister_section(cle) {
       data:{
           cle:cle
       },
-      url: "../Routes/Section/rechercheNom.php",
+      url: "../Routes/Section/GET_BY_NAME.php",
       success: function (reponse) {
-        $("#data").html(reponse);
+        $("#dataSection").html(reponse);
       },
     });
   }
@@ -16,12 +16,12 @@ function lister_section(cle) {
     if (val == true) {
       $.ajax({
         type: "POST",
-        url: "../Routes/Section/supprimer.php",
+        url: "../Routes/Section/DELETE.php",
         data: {
           id: id,
         },
         success: function (reponse) {
-          lister("");
+          lister_section("");
         },
       });
     }
@@ -32,21 +32,21 @@ function lister_section(cle) {
     //...controle de saisie
     $.ajax({
       type: "POST",
-      url: "../Routes/Section/ajouter.php",
+      url: "../Routes/Section/POST.php",
       data: {
         nom: nom,
       },
       success: function (reponse) {
         if (reponse === "200") alert("Section Ajouter avec succee !");
         else alert("Echec lors de l'ajout");
-        lister("");
+        lister_section("");
       },
     });
   }
   
   function redirection_modification_section(id){
-      window.location.href = `../Routes/section/modifier.php?id=${id}`;
-      console.log(`../Routes/section/modifier.php?id=${id}`);
+      window.location.href = `../Routes/section/PUT.php?id=${id}`;
+      console.log(`../Routes/section/PUT.php?id=${id}`);
   }
   
   lister_section("");

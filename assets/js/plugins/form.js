@@ -1,3 +1,27 @@
+const monthsInFrench = [
+    "Janvier",
+    "Février",
+    "Mars",
+    "Avril",
+    "Mai",
+    "Juin",
+    "Juillet",
+    "Août",
+    "Septembre",
+    "Octobre",
+    "Novembre",
+    "Décembre"
+];
+
+function formatDate(input,id) {
+    var date = new Date(document.getElementById(input).value);
+    var formattedDate = "Le " + (date.getDate()).toString().padStart(2, '0') + ' '
+                      + monthsInFrench[(date.getMonth() + 1).toString().padStart(2, '0')-1] + ' '
+                      + date.getFullYear();
+
+    document.getElementById(id).innerText = formattedDate;
+}
+
 function pwd(name) {
     var x = document.getElementById(name);
     if (x.type === "password") {

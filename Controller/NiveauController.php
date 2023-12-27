@@ -81,7 +81,7 @@ class NiveauController {
     public function recherche_par_nom($nom) {
         try {
             $nom =  '%' . $nom . '%';
-            $stmt = $this->conn->prepare("SELECT ID_NIVEAUX, NIVEAUX FROM niveaux WHERE NIVEAUX = ?");
+            $stmt = $this->conn->prepare("SELECT ID_NIVEAUX, NIVEAUX FROM niveaux WHERE NIVEAUX LIKE ?");
             $stmt->bind_param("s", $nom);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -90,7 +90,6 @@ class NiveauController {
                 $niveau = new Niveau($row["ID_NIVEAUX"], $row["NIVEAUX"]);
                 $niveaux[] = $niveau;
             }
-    
             return $niveaux;
         } catch (Exception $e) {
             die("Erreur : " . $e->getMessage());

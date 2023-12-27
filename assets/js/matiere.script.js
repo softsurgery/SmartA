@@ -4,9 +4,9 @@ function lister_matiere(cle) {
       data:{
           cle: cle
       },
-      url: "../Routes/Matiere/rechercheNom.php",
+      url: "../Routes/Matiere/GET_BY_NAME.php",
       success: function (reponse) {
-        $("#data").html(reponse);
+        $("#dataMatiere").html(reponse);
       },
     });
   }
@@ -16,7 +16,7 @@ function lister_matiere(cle) {
     if (val == true) {
       $.ajax({
         type: "POST",
-        url: "../Routes/Matiere/supprimer.php",
+        url: "../Routes/Matiere/DELETE.php",
         data: {
           id: id,
         },
@@ -28,11 +28,11 @@ function lister_matiere(cle) {
   }
   
   function ajouter_matiere() {
-    var nom = document.getElementById("nom_matiere").value;
+    var nom = document.getElementById("nom").value;
     // Validation des données
     $.ajax({
       type: "POST",
-      url: "../Routes/Matiere/ajouter.php",
+      url: "../Routes/Matiere/POST.php",
       data: {
         nom: nom,
       },
@@ -48,7 +48,7 @@ function lister_matiere(cle) {
   }
   
   function redirection_modification_matiere(id) {
-    window.location.href = `../Routes/Matiere/modifier.php?id=${id}`;
+    window.location.href = `../Routes/Matiere/PUT.php?id=${id}`;
   }
   
   lister_matiere("");

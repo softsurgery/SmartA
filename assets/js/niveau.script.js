@@ -6,7 +6,7 @@ function lister_niveau(cle) {
       },
       url: "../Routes/Niveau/GET_BY_NAME.php",
       success: function (reponse) {
-        $("#data").html(reponse);
+        $("#dataNiveaux").html(reponse);
       },
     });
   }
@@ -47,7 +47,7 @@ function lister_niveau(cle) {
   }
   
   function redirection_modification_niveau(id) {
-    window.location.href = `../Routes/Niveau/modifier.php?id=${id}`;
+    window.location.href = `../Routes/Niveau/PUT.php?id=${id}`;
   }
   
   lister_niveau("");

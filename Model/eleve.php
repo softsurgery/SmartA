@@ -22,7 +22,6 @@ class Eleve {
         $this->reduction = $reduction;
     }
 
-    // Méthodes getters et setters pour chaque attribut
 
     public function getId() {
         return $this->id;
@@ -94,21 +93,6 @@ class Eleve {
 
     public function setReduction($reduction) {
         $this->reduction = $reduction;
-    }
-
-    // Méthode pour convertir l'objet Eleve en tableau associatif
-    public function toArray() {
-        return [
-            'id' => $this->id,
-            'niveau' => $this->niveau,
-            'section' => $this->section,
-            'annee' => $this->annee,
-            'nom' => $this->nom,
-            'telephone' => $this->telephone,
-            'mail' => $this->mail,
-            'motDePasse' => $this->motDePasse,
-            'reduction' => $this->reduction
-        ];
     }
 }
 

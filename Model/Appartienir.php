@@ -5,9 +5,12 @@ class Appartienir{
     
     private $id_offre;
 
-    public function __construct($id_offre,$id_matiere){
+    private $prix;
+
+    public function __construct($id_offre,$id_matiere,$prix){
         $this->id_matiere = $id_matiere;
         $this->id_offre = $id_offre;
+        $this->prix = $prix;
     }
 
     public function getIdMatiere() {
@@ -25,6 +28,16 @@ class Appartienir{
     public function setIdOffre($id_offre) {
         $this->id_offre = $id_offre;
     }
+
+    public function getPrix() {
+        return $this->prix;
+    }
+
+    public function setPrix($prix) {
+        $this->prix = $prix;
+    }
+
+
 
 }
 

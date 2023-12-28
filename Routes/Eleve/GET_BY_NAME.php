@@ -12,6 +12,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Model/Section.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Controller/AnneeController.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Model/Annee.php";
 
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Controller/OffreController.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Model/Offre.php";
+
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Controller/AcheterController.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Model/Acheter.php";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cle = $_POST["cle"];
     $controller = new EleveController();
@@ -36,6 +42,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $motDePasse = $eleve->getMotDePasse();
             $reduction = $eleve->getReduction();
 
+            $controllerAchat = new AcheterController();
+            $offres = $controllerAchat->liste($id);
+            
+
+            $controllerOffre = new OffreController();
+ 
+            $nomDesOffres = "";
+            foreach ($offres as $offreId) {
+                $offre = $controllerOffre->recherche_par_id($offreId);
+                $nomOffre = $offre->getNom();
+                $nomDesOffres = $nomDesOffres .  $nomOffre  . ", ";
+            }
+            $nomDesOffres = substr($nomDesOffres, 0, -2);
+
         echo "<tr id=\"" . $id . "\">
         <td>" . $nom . "</td>
         <td>" . $telephone . "</td>
@@ -45,6 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <td>" . $niveau->getNom() . "</td>
         <td>" . $section->getNom() . "</td>
         <td>" . $reduction . "</td>
+        <td>" . $nomDesOffres . "</td>
+        <td><button onclick='redirection_ajouter_offre_eleve(\"" . $id . "\",\"" . $nom . "\")'>Ajouter</button></td>
         <td><button onclick='redirection_modification_eleve(\"" . $id . "\")'>Modifier</button></td>
         <td><button onclick='supprimer_eleve(\"" . $id . "\",\"" . $nom . "\")'>Supprimer</button></td>
       </tr>";

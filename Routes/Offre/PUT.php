@@ -1,20 +1,33 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Controller/OffreController.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Controller/AppartienirController.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Model/Offre.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Model/Appartienir.php";
+
 
 $controller = new OffreController();
+$appController = new AppartienirController();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST["i"];
     $nom = $_POST["nom"];
     $id_duree = $_POST["duree"];
-    $prix = $_POST["prix"];
-    $offre = new Offre($id, $id_duree, $nom, $prix);
-    echo $controller->modifier($offre) ? "200" : "500";
-    header('Location: ../../View/Offre.php');
+    $matieres = isset($_POST["matiere"]) ? $_POST["matiere"] : array();
+    $listeDesprix = $matieres = isset($_POST["prix"]) ? $_POST["prix"] : array();
+    $offre = new Offre($id, $id_duree, $nom);
+    $resp = $controller->ajouter($offre); 
+    sleep(2);
+    $appController->supprimer($id);
+    for($i= 0 ; $i < count($matieres);$i++) {
+            $appartienir = new Appartienir($id,$matieres[$i],$listeDesprix[$i]);
+            $appController->ajouter($appartienir);    
+    }
+    //header('Location: ../../View/Offre.php');
 } else if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $id = $_GET["id"];
     $offre = $controller->recherche_par_id($id);
+    $matieres = $appController->recherche_par_id($id);
 }
 
 ?>
@@ -63,14 +76,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </select>
                 </td>
             </tr>
-            
+
             <tr>
-                <td> <label for="prix">Prix Offre : </label> </td>
-                <td> <input type="number" name="prix" id="prix" value="<?php echo $offre->getPrix() ?>"></td>
+            <tr>
+                <td colspan="4">
+                    <?php
+                    require_once $_SERVER['DOCUMENT_ROOT'] . "/SmartA/Controller/MatiereController.php";
+
+                    $matiereController = new MatiereController();
+                    $allMatieres = $matiereController->liste();
+
+                    if ($allMatieres !== null) {
+                        foreach ($allMatieres as $matiere) {
+                            $id = $matiere->getId();
+                            $nom = $matiere->getNom();
+                            $checked = in_array($id, $matieres) ? 'checked' : ''; // Check if the matière ID is in the $matieres array
+                            echo "<input type='checkbox' name='matiere[]' value='$id' $checked/> $nom 
+                            <input type='number' name='prix[]' value='0'/><br>";
+                        }
+                    }
+                    ?>
+                </td>
+            </tr>
+
+
             </tr>
             <tr>
                 <td colspan="3"><input type="submit" value="Modifier Offre"></td>
             </tr>
+
+
         </table>
     </form>
     <script src="../../assets/js/plugins/form.js"></script>

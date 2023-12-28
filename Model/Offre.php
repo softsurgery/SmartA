@@ -3,13 +3,11 @@ class Offre {
     private $id;
     private $idDuree;
     private $nom;
-    private $prix;
 
-    public function __construct($id, $idDuree, $nom, $prix) {
+    public function __construct($id, $idDuree, $nom) {
         $this->id = $id;
         $this->idDuree = $idDuree;
         $this->nom = $nom;
-        $this->prix = $prix;
     }
 
 
@@ -35,13 +33,6 @@ class Offre {
 
     public function setNom($nom) {
         $this->nom = $nom;
-    }
-    public function getPrix() {
-        return $this->prix;
-    }
-
-    public function setPrix($prix) {
-        $this->prix = $prix;
     }
 }
 ?>

@@ -63,6 +63,10 @@ function lister_eleve(cle) {
   function redirection_modification_eleve(id) {
     window.location.href = `../Routes/Eleve/PUT.php?id=${id}`;
   }
+
+  function redirection_ajouter_offre_eleve(id,name) {
+    window.location.href = `../Routes/Acheter/POST.php?id=${id}&name=${name}`;
+  }
   
   lister_eleve("");
   
